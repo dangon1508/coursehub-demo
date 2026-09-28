@@ -1,4 +1,4 @@
-print("CourseHub -Buoi 1")
+print("CourseHub -Buoi 1.1")
 students = [
 {"id": "22000001", "name": "Nguyen Minh Anh", "major": "KHDL"},
 {"id": "22000002", "name": "Tran Duc Long", "major": "KHDL"},
@@ -48,4 +48,3 @@ try:
     print(courses[:limit])
 except ValueError:
     print("So luong phai la so nguyen")
-    
