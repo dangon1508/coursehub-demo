@@ -48,3 +48,22 @@ try:
     print(courses[:limit])
 except ValueError:
     print("So luong phai la so nguyen")
+def enroll_student(student_id, course_code):
+    student_exists = any(student["id"] == student_id for student in students)
+    if not student_exists:
+        return False, "Sinh vien khong ton tai"
+    course = next((c for c in courses if c["code"] == course_code), None)
+    if course is None:          
+        return False, "Hoc phan khong ton tai"
+    if course["enrolled"] >= course["capacity"]:
+        return False, "Lop da du so luong"
+    duplicated = any(
+        e["student_id"] == student_id and e["course_code"] == course_code
+        for e in enrollments
+    )
+    if duplicated:
+        return False, "Sinh vien da dang ky hoc phan nay"
+    enrollments.append({"student_id": student_id, "course_code": course_code})
+    course["enrolled"] += 1
+    return True, "Dang ky hoc phan thanh cong"
+
