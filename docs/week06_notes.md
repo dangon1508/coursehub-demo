@@ -23,5 +23,5 @@
 
 ## Pull Request / CI
 - PR: week06-docker-ci -> main
-- Reviewer: Peer review
+- Reviewer: chưa có
 - CI run: backend, frontend, docker jobs
